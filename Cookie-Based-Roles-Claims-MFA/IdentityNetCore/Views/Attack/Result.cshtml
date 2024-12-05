@@ -1,0 +1,25 @@
+﻿@model IdentityNetCore.Controllers.Person;
+@using System.Text.Encodings.Web
+@{
+    ViewData["Title"] = "Result";
+}
+
+XSS : Cross site script attack
+
+@* Case 1 : *@
+@* <script>alert("Hello world")</script>
+when you pass it like this in the get method it will not render the script as because
+by default .net will encode the data this will encript the data 
+ *@
+
+These are the 3 ways we can encode it on the web
+<h1>@Model.UserName</h1>
+<h1>@HtmlEncoder.Default.Encode(Model.UserName)</h1>
+<h1>@UrlEncoder.Default.Encode(Model.UserName)</h1>
+<h1>@JavaScriptEncoder.Default.Encode(Model.UserName)</h1>
+
+
+@* Raw method will show you without encryption so it will execute the script *@
+<h1>@Html.Raw(Model.UserName)</h1>
+
+

@@ -1,0 +1,19 @@
+Roles should loaded in the DB using script
+In this project he hardcode the values and insert into db if the role wasn't there
+but in the real enterprice application we should define the role and scope and we inserted into the db first
+
+aspnetRole table => will hold the roles of the application
+aspnetUserRole => will hold the relationship between the user and the roles
+
+aspnetUserClaims => which will add the Claims which will be mapped to the user
+aspNetRoleClaims => which will add the Claims it will be mapped to the roles.
+
+Identity => is who you are (Authenticated details need for userName,Email,password)
+Role => who you are given context (Employee,Admin,Guest)
+Claim => A Piece of extra information about you (Department,Phone,PinCode)
+
+Policy : This is decalrative approach for the doind another type of authentication
+In this we will create policy which will needed a specific role and claim
+    For an Instance : (Role : Admin) then (Claim => Department : Supervisor)
+It can be specific to the user as well
+    For an Instance : (Role : Guest) then (Claim => Age : 24) or above 24

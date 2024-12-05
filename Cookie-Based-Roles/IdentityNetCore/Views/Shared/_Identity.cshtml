@@ -1,0 +1,24 @@
+﻿@{
+    //This will help you validate the user is authenticated in cshtml
+    var loggedIn = User.Identity.IsAuthenticated;
+}
+
+@if (loggedIn)
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Identity" asp-action="signout">Sign out</a>
+    </li>
+    <li class="nav-item">
+        <label>Hello @User.Identity.Name</label>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Identity" asp-action="Signup">Sign up</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Identity" asp-action="Signin">Sign in</a>
+    </li>
+}
